@@ -140,7 +140,7 @@ version = "0.7"
 version = "1.5"
 
 [workspace.dependencies.itertools]
-version = "0.14"
+version = "0.15"
 
 [workspace.dependencies.indexmap]
 version = "2"
