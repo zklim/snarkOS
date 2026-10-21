@@ -125,7 +125,7 @@ impl<N: Network> From<DisconnectReason> for Message<N> {
 impl<N: Network> Message<N> {
     /// The version of the network protocol; this is incremented for breaking changes between migration versions.
     // Note. This should be incremented for each new `ConsensusVersion` that is added.
-    pub const VERSIONS: [(ConsensusVersion, u32); 17] = [
+    pub const VERSIONS: [(ConsensusVersion, u32); 19] = [
         (ConsensusVersion::V5, 17),
         (ConsensusVersion::V7, 18),
         (ConsensusVersion::V8, 19),
@@ -143,6 +143,8 @@ impl<N: Network> Message<N> {
         (ConsensusVersion::V20, 31),
         (ConsensusVersion::V21, 32),
         (ConsensusVersion::V22, 33),
+        (ConsensusVersion::V23, 34),
+        (ConsensusVersion::V24, 35),
     ];
 
     /// Returns the latest message version whose consensus upgrade has a scheduled block height.
@@ -378,6 +380,22 @@ mod tests {
         latest_message_version_has_scheduled_height::<MainnetV0>();
         latest_message_version_has_scheduled_height::<TestnetV0>();
         latest_message_version_has_scheduled_height::<CanaryV0>();
+    }
+
+    #[test]
+    #[ignore = "requires snarkvm/test and isolated CONSENSUS_VERSION_HEIGHTS=0,1,...,21,30,40"]
+    fn test_recovery_message_activation_boundaries() -> Result<(), Box<dyn std::error::Error>> {
+        let schedule = (0..22).chain([30, 40]).map(|height| height.to_string()).collect::<Vec<_>>().join(",");
+        assert_eq!(std::env::var("CONSENSUS_VERSION_HEIGHTS")?, schedule);
+        for (height, expected) in [(29, 33), (30, 34), (31, 34), (39, 34), (40, 35), (41, 35)] {
+            assert_eq!(Message::<MainnetV0>::lowest_accepted_message_version(height), expected);
+            assert_eq!(Message::<TestnetV0>::lowest_accepted_message_version(height), expected);
+            assert_eq!(Message::<CanaryV0>::lowest_accepted_message_version(height), expected);
+        }
+        assert_eq!(Message::<MainnetV0>::latest_message_version(), 35);
+        assert_eq!(Message::<TestnetV0>::latest_message_version(), 35);
+        assert_eq!(Message::<CanaryV0>::latest_message_version(), 35);
+        Ok(())
     }
 
     #[test]
