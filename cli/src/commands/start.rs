@@ -781,6 +781,7 @@ impl Start {
     /// Start the node and blocks until it terminates.
     #[rustfmt::skip]
     async fn parse_node<N: Network>(&mut self, handle: Handle, log_receiver: mpsc::Receiver<Vec<u8>>) -> Result<()> {
+        crate::helpers::recovery::check_network::<N>()?;
         if !self.nobanner {
             // Print the welcome banner.
             println!("{}", crate::helpers::welcome_message());
