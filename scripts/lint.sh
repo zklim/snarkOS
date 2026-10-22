@@ -9,7 +9,7 @@ echo "Running clippy..."
 cargo clippy --workspace --all-targets --all-features -- -D warnings
 
 echo "Checking rustfmt..."
-cargo +nightly fmt --all -- --check
+cargo +nightly-2026-04-02 fmt --all -- --check
 
 if command -v cargo-deny >/dev/null; then
   echo "Running cargo deny..."

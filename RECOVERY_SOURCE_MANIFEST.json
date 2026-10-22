@@ -1,0 +1,23 @@
+{
+  "branch": "quantum-recoverability-pqs",
+  "base_commit": "5d497bf3253eec606404bee8d65c305d8cd86f76",
+  "parent_commit": "5d497bf3253eec606404bee8d65c305d8cd86f76",
+  "snapshot_kind": "publication inventory; exact source revision is the containing Git commit",
+  "source_identity_method": "SHA256 of sorted compact JSON files_sha256; inventory includes changed/new files relative to base_commit; manifest excludes itself",
+  "source_snapshot_sha256": "5cea8a723b526323373a00ae661e79eaa78c719b17d50da77ecb9a517e657c80",
+  "files_sha256": {
+    "RECOVERY_ARCHITECTURE.md": "6c14bdaece1f3716215b863a326b1c4d8329a012e4a9f41ec4c9f853188efd3e",
+    "RECOVERY_OWNERSHIP_STATUS.md": "7bb5df973f02e80c13357aebfd382bbc03ac48e3f758be83a5ab6066c7b77659",
+    "RECOVERY_RESULTS.md": "0b2ef325004b5218fc6a2fd0875621041afe67e522bd213ae0bbe27753c6113e",
+    "cli/src/commands/start.rs": "09db4a4a2fc77776dd494050f111fe621053a8e815da1724bf7e517ad8fb4b0c",
+    "cli/src/helpers/mod.rs": "89a83739bbe2f670ede0d884fb864c5537756923a2f2240c70772b36d3b382d9",
+    "cli/src/helpers/recovery.rs": "573d19e3beae476dcd6dcebd5b34f841d4c96b90f0c8b61feb892edb873841d4",
+    "recovery-evidence/backend-unavailable.json": "36893a53226fb4214aac0450e59f2c8e80866a3103c279c9cc0e4a3c6abe2323",
+    "recovery-evidence/unscheduled-smoke.json": "f6d51e87dbe7fa6717bb430a31e02328932755b2ffecc6a08c542648ce7c5751",
+    "recovery-evidence/validation.log": "d27510dda6ad12096a223f48a92871c958383e44cf4c9b48155d172758aa5f6f",
+    "scripts/lint.sh": "a029796596364cd0a1a099cbd5107ae9418b0291f95ecaca53abb7ecee90b969",
+    "scripts/test_recovery_backend_unavailable.py": "0fc40822be35d0f1bc5decea0b533b8cd3845b47ed23a4c9d2394077f054ef9b"
+  },
+  "evaluation_inventory_sha256": "5b7d4c2928842aeed74167fde8f3b9ca63dfb43778b62291a5f3bddb76b86b4a",
+  "before_snapshot_manifest_sha256": "60237f886089aa6475a88e41eb25b1cbbaf9d5742233a87cc1f533afc91b92ff"
+}
