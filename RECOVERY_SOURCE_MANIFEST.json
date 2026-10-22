@@ -1,7 +1,7 @@
 {
-  "branch": "quantum-recoverability-pqs",
+  "branch": "quantum-recoverability-aerie",
   "base_commit": "5d497bf3253eec606404bee8d65c305d8cd86f76",
-  "parent_commit": "5d497bf3253eec606404bee8d65c305d8cd86f76",
+  "parent_commit": "aa6234fb9c69626e11c763c8e052904684c44032",
   "snapshot_kind": "publication inventory; exact source revision is the containing Git commit",
   "source_identity_method": "SHA256 of sorted compact JSON files_sha256; inventory includes changed/new files relative to base_commit; manifest excludes itself",
   "source_snapshot_sha256": "5cea8a723b526323373a00ae661e79eaa78c719b17d50da77ecb9a517e657c80",
@@ -18,6 +18,6 @@
     "scripts/lint.sh": "a029796596364cd0a1a099cbd5107ae9418b0291f95ecaca53abb7ecee90b969",
     "scripts/test_recovery_backend_unavailable.py": "0fc40822be35d0f1bc5decea0b533b8cd3845b47ed23a4c9d2394077f054ef9b"
   },
-  "evaluation_inventory_sha256": "5b7d4c2928842aeed74167fde8f3b9ca63dfb43778b62291a5f3bddb76b86b4a",
-  "before_snapshot_manifest_sha256": "60237f886089aa6475a88e41eb25b1cbbaf9d5742233a87cc1f533afc91b92ff"
+  "evaluation_inventory_sha256": "95390894e3f6c39c915ddd7f92d5d3babbafe10eb09789bf65ed3431a6bf65e1",
+  "before_snapshot_manifest_sha256": "fca328feedaf397616ad6f178dd209883e9bd0c02fd5fc3865538049ea3c79aa"
 }
