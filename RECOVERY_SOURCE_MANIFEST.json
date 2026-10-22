@@ -1,20 +1,20 @@
 {
-  "repository": "snarkOS",
-  "branch": "quantum-recoverability-pqs",
-  "base_commit": "a7467f5a5553aac325052eb7e0c5570c15f395fe",
+  "repository": "snarkOS-aerie",
+  "branch": "quantum-recoverability-aerie",
+  "base_commit": "f86c13791ed68b60fc5b3114f50d5d50c8f9234b",
   "snapshot_kind": "Uncommitted source overlay; base_commit does not contain these changes",
   "source_identity_method": "SHA256 of sorted compact JSON inventory from snapshot_sources.inventory(snapshot_sources.files(repo)), excluding this manifest; includes path, kind, mode, size and byte SHA256",
-  "source_tree_without_manifest_sha256": "ba275991f7f3af7fe3fcfe65987a6c233d6c37b2150de27077d4de4aef0a01a6",
+  "source_tree_without_manifest_sha256": "acefed5fa4f77fdac4715ba6fa29e0d321df601f6a41b612c587d753c32904d5",
   "source_file_count_without_manifest": 351,
   "changed_files_sha256": {
     ".gitignore": "256862e42bb5efc814f78be9dee6d9a856a1f9322b851810d73cd90f6a2e9a14",
     "Cargo.lock": "0ab766d68a34c6a29f1305cf5d0186e2c98539573c298351c02f91cbb8f90793",
-    "Cargo.toml": "c87239cd3965974c5c2fa8582eaf2ba10129b17e43e04a8baed39b7bfd36eb74",
+    "Cargo.toml": "095ecbff529d3cca868f652220d5f60c9887c6d1edf312f09a5f42959f614f88",
     "MAINNET_COMPARISON.json": "9540adaccc43af25dc9ea63e5a31f52ea19a49d8952401be265f2ab992973566",
     "MAINNET_COMPARISON.md": "9bce134884ce0769cbbbb552ba820991da74a6f56d883f9785c4c659462a468d",
-    "RECOVERY_ARCHITECTURE.md": "e4eb239f243987fa485ee116b9eaaed8890b8029e7f461c4bad55e834f97eddf",
-    "RECOVERY_OWNERSHIP_STATUS.md": "7fa5712245b3666bf31098c24c7afd59b3163c4408a3c06477f4774bd0c70491",
-    "RECOVERY_RESULTS.md": "7244f62e4612bb88659f158f1f979e2afa8ce8270580fd6e7f5a0ea97d2518e7",
+    "RECOVERY_ARCHITECTURE.md": "67cdcdaf42bc693e4b36aefc466234c584eccad0ccb1cc340bedb132a070b36b",
+    "RECOVERY_OWNERSHIP_STATUS.md": "293168cd8769a406bed83e93a3f2e1dd72676199a0e3968076c8d085e24cdad7",
+    "RECOVERY_RESULTS.md": "3b78e01198d490cc14e6cb513890878cfba4e73bb8647945067151f34757470e",
     "UPSTREAM_REBASE.md": "32e54c4d15416d71cbd07d4430e416448f41d149b8fecdfb8150cf0431db7882",
     "cli/Cargo.toml": "c543692b35b316056de590cc37c8ca1e4f3c330818bb7abe01673d4927c39dad",
     "cli/src/commands/developer/mod.rs": "573a6f62acbb89062ced56a4456719426337f0715e4e6e3b773ff681ae7a78b8",
@@ -40,23 +40,27 @@
   "cargo_lock_sha256": "0ab766d68a34c6a29f1305cf5d0186e2c98539573c298351c02f91cbb8f90793",
   "public_activation_heights": "unscheduled",
   "local_dependencies": {
-    "../snarkVM": {
-      "repository": "snarkVM",
-      "base_commit": "31fff32e3393ab0596d31cd060376e5a15c78b73",
-      "source_tree_without_manifest_sha256": "8d05d6d9a204b4ae1e414ee76358d249563eadde8aa11c1a1e98c72fcfc40ecc"
+    "../snarkVM-aerie": {
+      "repository": "snarkVM-aerie",
+      "base_commit": "63713683da4686092cbd2324d9265ee78fc207b9",
+      "source_tree_without_manifest_sha256": "67d862b574519a83ba15cea2b85146c44fe61813a8a35529697fe5ac1549b1e3"
     }
   },
   "reproduction": "Use the matching four source archives and Cargo.lock files; verify full normalized inventories with recovery/history-tools/snapshot_sources.py. Do not substitute base_commit checkouts for the dirty source archives.",
+  "derived_from_core": {
+    "repository": "snarkOS",
+    "base_commit": "a7467f5a5553aac325052eb7e0c5570c15f395fe",
+    "source_tree_without_manifest_sha256": "ba275991f7f3af7fe3fcfe65987a6c233d6c37b2150de27077d4de4aef0a01a6"
+  },
+  "adapter_source_revisions": {
+    "aerie": "49b6c212c209286c536196f53618823ffdf0e899",
+    "akita": "e023b6a46143f7b23199ccecb2684192baf7b640",
+    "jolt": "c7c2d08d5bb0c7c80501f29f723e595af7fcff3c",
+    "spongefish": "ef9741346a150039427d9e0c02d6b2d73e93ec81"
+  },
   "publication": {
     "snapshot_fields": "The fields above identify the validated pre-publication capture; use the Git commit containing this manifest for the published checkout.",
     "notes": "RECOVERY_PUBLICATION.md",
-    "validation_summary": "RECOVERY_VALIDATION.json",
-    "vm_dependency": {
-      "repository": "zklim/snarkVM",
-      "commit": "23daf73be87d9fd15a4352a73c14bc94a4bc5103",
-      "branch": "quantum-recoverability-pqs",
-      "path": "../snarkVM",
-      "source": "https://github.com/zklim/snarkVM.git"
-    }
+    "validation_summary": "RECOVERY_VALIDATION.json"
   }
 }
