@@ -125,6 +125,7 @@ pub fn update_block_metrics<N: Network>(block: &Block<N>) {
 
     let accepted_deploy = AtomicUsize::new(0);
     let accepted_execute = AtomicUsize::new(0);
+    let accepted_recovery = AtomicUsize::new(0);
     let rejected_deploy = AtomicUsize::new(0);
     let rejected_execute = AtomicUsize::new(0);
 
@@ -136,6 +137,9 @@ pub fn update_block_metrics<N: Network>(block: &Block<N>) {
         ConfirmedTransaction::AcceptedExecute(_, _, _) => {
             accepted_execute.fetch_add(1, Ordering::Relaxed);
         }
+        ConfirmedTransaction::AcceptedRecovery(_, _, _) => {
+            accepted_recovery.fetch_add(1, Ordering::Relaxed);
+        }
         ConfirmedTransaction::RejectedDeploy(_, _, _, _) => {
             rejected_deploy.fetch_add(1, Ordering::Relaxed);
         }
@@ -146,6 +150,7 @@ pub fn update_block_metrics<N: Network>(block: &Block<N>) {
 
     increment_gauge(blocks::ACCEPTED_DEPLOY, accepted_deploy.load(Ordering::Relaxed) as f64);
     increment_gauge(blocks::ACCEPTED_EXECUTE, accepted_execute.load(Ordering::Relaxed) as f64);
+    increment_gauge(blocks::ACCEPTED_RECOVERY, accepted_recovery.load(Ordering::Relaxed) as f64);
     increment_gauge(blocks::REJECTED_DEPLOY, rejected_deploy.load(Ordering::Relaxed) as f64);
     increment_gauge(blocks::REJECTED_EXECUTE, rejected_execute.load(Ordering::Relaxed) as f64);
 

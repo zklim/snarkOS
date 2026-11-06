@@ -51,6 +51,9 @@ features = [ "erased-json", "typed-header" ]
 [dependencies.http]
 workspace = true
 
+[dependencies.hex]
+version = "=0.4.3"
+
 [dependencies.indexmap]
 workspace = true
 features = [ "serde", "rayon" ]

@@ -1,23 +1,62 @@
 {
+  "repository": "snarkOS",
   "branch": "quantum-recoverability-pqs",
-  "base_commit": "5d497bf3253eec606404bee8d65c305d8cd86f76",
-  "parent_commit": "5d497bf3253eec606404bee8d65c305d8cd86f76",
-  "snapshot_kind": "publication inventory; exact source revision is the containing Git commit",
-  "source_identity_method": "SHA256 of sorted compact JSON files_sha256; inventory includes changed/new files relative to base_commit; manifest excludes itself",
-  "source_snapshot_sha256": "5cea8a723b526323373a00ae661e79eaa78c719b17d50da77ecb9a517e657c80",
-  "files_sha256": {
-    "RECOVERY_ARCHITECTURE.md": "6c14bdaece1f3716215b863a326b1c4d8329a012e4a9f41ec4c9f853188efd3e",
-    "RECOVERY_OWNERSHIP_STATUS.md": "7bb5df973f02e80c13357aebfd382bbc03ac48e3f758be83a5ab6066c7b77659",
-    "RECOVERY_RESULTS.md": "0b2ef325004b5218fc6a2fd0875621041afe67e522bd213ae0bbe27753c6113e",
-    "cli/src/commands/start.rs": "09db4a4a2fc77776dd494050f111fe621053a8e815da1724bf7e517ad8fb4b0c",
-    "cli/src/helpers/mod.rs": "89a83739bbe2f670ede0d884fb864c5537756923a2f2240c70772b36d3b382d9",
-    "cli/src/helpers/recovery.rs": "573d19e3beae476dcd6dcebd5b34f841d4c96b90f0c8b61feb892edb873841d4",
-    "recovery-evidence/backend-unavailable.json": "36893a53226fb4214aac0450e59f2c8e80866a3103c279c9cc0e4a3c6abe2323",
-    "recovery-evidence/unscheduled-smoke.json": "f6d51e87dbe7fa6717bb430a31e02328932755b2ffecc6a08c542648ce7c5751",
-    "recovery-evidence/validation.log": "d27510dda6ad12096a223f48a92871c958383e44cf4c9b48155d172758aa5f6f",
-    "scripts/lint.sh": "a029796596364cd0a1a099cbd5107ae9418b0291f95ecaca53abb7ecee90b969",
-    "scripts/test_recovery_backend_unavailable.py": "0fc40822be35d0f1bc5decea0b533b8cd3845b47ed23a4c9d2394077f054ef9b"
+  "base_commit": "a7467f5a5553aac325052eb7e0c5570c15f395fe",
+  "snapshot_kind": "Uncommitted source overlay; base_commit does not contain these changes",
+  "source_identity_method": "SHA256 of sorted compact JSON inventory from snapshot_sources.inventory(snapshot_sources.files(repo)), excluding this manifest; includes path, kind, mode, size and byte SHA256",
+  "source_tree_without_manifest_sha256": "ba275991f7f3af7fe3fcfe65987a6c233d6c37b2150de27077d4de4aef0a01a6",
+  "source_file_count_without_manifest": 351,
+  "changed_files_sha256": {
+    ".gitignore": "256862e42bb5efc814f78be9dee6d9a856a1f9322b851810d73cd90f6a2e9a14",
+    "Cargo.lock": "0ab766d68a34c6a29f1305cf5d0186e2c98539573c298351c02f91cbb8f90793",
+    "Cargo.toml": "c87239cd3965974c5c2fa8582eaf2ba10129b17e43e04a8baed39b7bfd36eb74",
+    "MAINNET_COMPARISON.json": "9540adaccc43af25dc9ea63e5a31f52ea19a49d8952401be265f2ab992973566",
+    "MAINNET_COMPARISON.md": "9bce134884ce0769cbbbb552ba820991da74a6f56d883f9785c4c659462a468d",
+    "RECOVERY_ARCHITECTURE.md": "e4eb239f243987fa485ee116b9eaaed8890b8029e7f461c4bad55e834f97eddf",
+    "RECOVERY_OWNERSHIP_STATUS.md": "7fa5712245b3666bf31098c24c7afd59b3163c4408a3c06477f4774bd0c70491",
+    "RECOVERY_RESULTS.md": "7244f62e4612bb88659f158f1f979e2afa8ce8270580fd6e7f5a0ea97d2518e7",
+    "UPSTREAM_REBASE.md": "32e54c4d15416d71cbd07d4430e416448f41d149b8fecdfb8150cf0431db7882",
+    "cli/Cargo.toml": "c543692b35b316056de590cc37c8ca1e4f3c330818bb7abe01673d4927c39dad",
+    "cli/src/commands/developer/mod.rs": "573a6f62acbb89062ced56a4456719426337f0715e4e6e3b773ff681ae7a78b8",
+    "cli/src/commands/developer/recovery.rs": "3e60538b3f8e94bb875cbaeedba1f9e4ed5a94c9b771d5379326a97dcde690dd",
+    "cli/src/commands/start.rs": "814b206a08d3359e971a89bf4d9db0913859b667c0910ab11fcb2c7cf431025e",
+    "cli/src/helpers/recovery.rs": "3d444a99b84e31bb5fcb92dd8059bc46693b38f0f64133be47e4b6371c5166c9",
+    "node/bft/src/gateway.rs": "951c4edd90a982d7e34650daea1b950d2f07a9bc0bba1d736af81351a6424b30",
+    "node/consensus/src/lib.rs": "abaee43f94da410de4ec56d32b44046af77ecf4df33c0d1833ac23fc4c442a5d",
+    "node/consensus/src/transactions_queue.rs": "7ee08e8760bcb4de1f4df082bc36872e00d246006d7349623d7fc59651051038",
+    "node/metrics/src/lib.rs": "6f9566f48a84781df0d5269829a8519c68574de1df23aa3ec673df13f8f2cae1",
+    "node/metrics/src/names.rs": "ce910424416c365953ecb47a757f51e7bf90de5d49dae248684edd1242a03033",
+    "node/rest/Cargo.toml": "1aba29aa6a58e70f492dc0b15007af089864abcdb79769d040dce281b3b4d4db",
+    "node/rest/src/lib.rs": "0a04f14744ad73f86cb8843bac470f42ff56aa2699c635237386f2bd6c80cacd",
+    "node/rest/src/routes.rs": "d1f355ff2d993e1db4636d64d0075bd600f6b2fd550d013ddc4c274f65f832d3",
+    "node/src/client/router.rs": "eb94071933b4a6205f77cfab6aad9043614611c19d7b90e9104b8fa72a2bfa4e",
+    "scripts/recovery_checkpoint.py": "f39c3f99b62fa862351b5cfb1053666e4b80287ba2d6600d614dc7c0bdd1fe33",
+    "scripts/recovery_resume.py": "4eb0597cc01f1c5612393a817331c78a93614d4751f7989c5c51ea47816e56be",
+    "scripts/test_disclosed_recovery.py": "a740c1f50efa57f1bd8cd2b917521871192b58c3e0912de091983d9fad5b7761",
+    "scripts/test_recovery_backend_unavailable.py": "96c5777c5398598a2aa203f35dba72dc8ef99eef941304dc252a3cf739073b98",
+    "scripts/test_recovery_harness.py": "7196322dfb2caab923d0898723af2c9d0fc9dbc4421058c1b1ad54baa93cd0ad"
   },
-  "evaluation_inventory_sha256": "5b7d4c2928842aeed74167fde8f3b9ca63dfb43778b62291a5f3bddb76b86b4a",
-  "before_snapshot_manifest_sha256": "60237f886089aa6475a88e41eb25b1cbbaf9d5742233a87cc1f533afc91b92ff"
+  "deleted_files": [],
+  "cargo_lock_sha256": "0ab766d68a34c6a29f1305cf5d0186e2c98539573c298351c02f91cbb8f90793",
+  "public_activation_heights": "unscheduled",
+  "local_dependencies": {
+    "../snarkVM": {
+      "repository": "snarkVM",
+      "base_commit": "31fff32e3393ab0596d31cd060376e5a15c78b73",
+      "source_tree_without_manifest_sha256": "8d05d6d9a204b4ae1e414ee76358d249563eadde8aa11c1a1e98c72fcfc40ecc"
+    }
+  },
+  "reproduction": "Use the matching four source archives and Cargo.lock files; verify full normalized inventories with recovery/history-tools/snapshot_sources.py. Do not substitute base_commit checkouts for the dirty source archives.",
+  "publication": {
+    "snapshot_fields": "The fields above identify the validated pre-publication capture; use the Git commit containing this manifest for the published checkout.",
+    "notes": "RECOVERY_PUBLICATION.md",
+    "validation_summary": "RECOVERY_VALIDATION.json",
+    "vm_dependency": {
+      "repository": "zklim/snarkVM",
+      "commit": "23daf73be87d9fd15a4352a73c14bc94a4bc5103",
+      "branch": "quantum-recoverability-pqs",
+      "path": "../snarkVM",
+      "source": "https://github.com/zklim/snarkVM.git"
+    }
+  }
 }

@@ -28,6 +28,8 @@ validator-*
 .ci/release-snarkos-src
 
 # Dev tooling
+__pycache__/
+*.py[cod]
 .helix/
 *.idea/
 .claude/

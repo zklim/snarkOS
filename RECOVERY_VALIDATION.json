@@ -1,0 +1,528 @@
+{
+  "kind": "Validated source snapshot before publication; Git tips change when committed, Rust/Cargo contents do not",
+  "validation_started_utc": "2026-11-06T08:09:05.032445+00:00",
+  "validation_finished_utc": "2026-11-06T09:01:39.251677+00:00",
+  "source_snapshots": {
+    "identity": "Base Git SHA plus exact dirty source tree; not a new Git commit",
+    "repositories": [
+      {
+        "name": "snarkVM",
+        "branch": "quantum-recoverability-pqs",
+        "base_commit": "31fff32e3393ab0596d31cd060376e5a15c78b73",
+        "source_tree_sha256": "7380c62fadec760e340edd3e99b9df665eba3ec06b897bc3ed62f92b8c1b4cc1",
+        "archive": "snarkVM-7380c62fadec760e340edd3e99b9df665eba3ec06b897bc3ed62f92b8c1b4cc1.tar.gz",
+        "archive_sha256": "2dab90e82e3b26b686714542f7e228010f3a76be54bc90e2547b8eebaa447b8e",
+        "cargo_lock_sha256": "14b5cb1530b1b9e8028cbce51f8825c69fc3ec690bd95fbf9999511ead76ed75",
+        "files": 2763,
+        "dirty": true
+      },
+      {
+        "name": "snarkOS",
+        "branch": "quantum-recoverability-pqs",
+        "base_commit": "a7467f5a5553aac325052eb7e0c5570c15f395fe",
+        "source_tree_sha256": "b56809cb14397e384f23fba397cbed0f2a9aadaf15d0da8dbed5e0eb0eb3d11d",
+        "archive": "snarkOS-b56809cb14397e384f23fba397cbed0f2a9aadaf15d0da8dbed5e0eb0eb3d11d.tar.gz",
+        "archive_sha256": "f41f8e4aa5544aa97378dbd11d2666662a8e24a74c88f4f418251c214fb36f65",
+        "cargo_lock_sha256": "0ab766d68a34c6a29f1305cf5d0186e2c98539573c298351c02f91cbb8f90793",
+        "files": 352,
+        "dirty": true
+      },
+      {
+        "name": "snarkVM-aerie",
+        "branch": "quantum-recoverability-aerie",
+        "base_commit": "63713683da4686092cbd2324d9265ee78fc207b9",
+        "source_tree_sha256": "e8098997ffb6261cad0b36d6f7debb80962a8ba743cd81046b3b271fad1fb200",
+        "archive": "snarkVM-aerie-e8098997ffb6261cad0b36d6f7debb80962a8ba743cd81046b3b271fad1fb200.tar.gz",
+        "archive_sha256": "3b62c50bf3f0d8986a025d410fd94c99e2d4550ec4892c9041cd2984e79a321c",
+        "cargo_lock_sha256": "0892a7651df23a5b9d8c4dbe8168671bc81a8683eee07e0de460906e9b54ff62",
+        "files": 2786,
+        "dirty": true
+      },
+      {
+        "name": "snarkOS-aerie",
+        "branch": "quantum-recoverability-aerie",
+        "base_commit": "f86c13791ed68b60fc5b3114f50d5d50c8f9234b",
+        "source_tree_sha256": "fda5afe39a43e63c5d43adf786bc93d08b3a0192f2501667fddf0a7962f5ea80",
+        "archive": "snarkOS-aerie-fda5afe39a43e63c5d43adf786bc93d08b3a0192f2501667fddf0a7962f5ea80.tar.gz",
+        "archive_sha256": "0efc3c4bcb353945a4c4e74781dfab50227e9a38b9869fd7c7fad899c26667ca",
+        "cargo_lock_sha256": "0ab766d68a34c6a29f1305cf5d0186e2c98539573c298351c02f91cbb8f90793",
+        "files": 352,
+        "dirty": true
+      }
+    ]
+  },
+  "binary_sha256": "bc1fbc261656f02a93474ab65e175a3889f3affdce7af675fc21dbc03b26c4ca",
+  "compile_input_identities": {
+    "snarkVM": {
+      "capture_commit": "31fff32e3393ab0596d31cd060376e5a15c78b73",
+      "inputs_sha256": "34bb958897aecd47a6b99e011204d99c3bff3519a3cb17af70b37da2aca86cdc"
+    },
+    "snarkOS": {
+      "capture_commit": "a7467f5a5553aac325052eb7e0c5570c15f395fe",
+      "inputs_sha256": "6f00bcc22c4403cf5681481232554a3d51bad2361802e5cd5f23ed6efeebd1d9"
+    }
+  },
+  "environment": {
+    "captured_utc": "2026-11-06T08:36:27.637541+00:00",
+    "toolchain": "rustc 1.96.1 (31fca3adb 2026-06-26)\nbinary: rustc\ncommit-hash: 31fca3adb283cc9dfd56b49cdee9a96eb9c96ffd\ncommit-date: 2026-06-26\nhost: x86_64-unknown-linux-gnu\nrelease: 1.96.1\nLLVM version: 22.1.2\n",
+    "cargo": "cargo 1.96.1 (356927216 2026-06-26)\n",
+    "candidate_manifest": {
+      "path": "/workspace/security-evaluation/upstream-rebase-20261106/rebased-candidate-sources/manifest.json",
+      "bytes": 2426,
+      "sha256": "7f29258ea0917f77d4c4dd043e52a8c6f523b48b31bd4e0e313215859692bc4c"
+    },
+    "setup": {
+      "path": "/workspace/.setup/snarkos-env.sh",
+      "bytes": 356,
+      "sha256": "7f4255ac1e98b376d521df3b88c1ad3e1da4cbaccd412f742962a4fbf419a4b9"
+    },
+    "runtime_wrapper": {
+      "path": "/workspace/.setup/rustc-cxx-runtime.py",
+      "bytes": 440,
+      "sha256": "bd391bc2aca5e2a6b19b9750fadbb334b40f60f112551e7294938dff48c475fd"
+    },
+    "rocksdb_archive": {
+      "path": "/workspace/snarkOS/target/debug/build/librocksdb-sys-630aa221dd10c9ff/out/librocksdb.a",
+      "bytes": 1211394800,
+      "sha256": "d6757f7275641d2f0c35b98598b809c028ba069e9d7a77a6baaad96b00c99729"
+    },
+    "environment": {
+      "RUSTUP_TOOLCHAIN": "1.96.1",
+      "CARGO_TARGET_DIR": "/workspace/snarkOS/target",
+      "CARGO_INCREMENTAL": "0",
+      "RUSTFLAGS": "-C target-cpu=skylake",
+      "CARGO_BUILD_JOBS": "3",
+      "ROCKSDB_LIB_DIR": "/workspace/snarkOS/target/debug/build/librocksdb-sys-630aa221dd10c9ff/out",
+      "ROCKSDB_STATIC": "1",
+      "RUSTC_WRAPPER": "/workspace/.setup/rustc-cxx-runtime.py",
+      "CARGO_PROFILE_RELEASE_LTO": "false",
+      "CARGO_PROFILE_RELEASE_DEBUG": "0",
+      "CARGO_PROFILE_RELEASE_STRIP": "debuginfo"
+    },
+    "note": "Cached RocksDB archive and runtime wrapper retain the independently pinned pre-rebase identities; Cargo locks retain the same librocksdb-sys version/features. Rebuilt Rust dependencies use the rebased lockfile."
+  },
+  "checks": [
+    {
+      "name": "snarkOS-fmt",
+      "status": "PASS",
+      "command": [
+        "cargo",
+        "+nightly-2026-04-02",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "seconds": 3.83,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "snarkOS-clippy",
+      "status": "PASS",
+      "command": [
+        "cargo",
+        "clippy",
+        "--locked",
+        "--workspace",
+        "--all-targets",
+        "--all-features",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "seconds": 33.167,
+      "log_sha256": "5b13f17c587cfebc2305dea286a76722af086d855cb55f7ede8ffb61b105a511"
+    },
+    {
+      "name": "snarkVM-fmt",
+      "status": "PASS",
+      "command": [
+        "cargo",
+        "+nightly-2026-04-02",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "seconds": 2.554,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "snarkVM-clippy",
+      "status": "PASS",
+      "command": [
+        "cargo",
+        "clippy",
+        "--locked",
+        "--workspace",
+        "--all-targets",
+        "--all-features",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "seconds": 48.647,
+      "log_sha256": "25a47aa2ea9cc071f39b2877ed8fb87482331c45ced18c969025ec3d2e7e9366"
+    },
+    {
+      "name": "snarkOS-aerie-fmt",
+      "status": "PASS",
+      "command": [
+        "cargo",
+        "+nightly-2026-04-02",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "seconds": 3.201,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "snarkOS-aerie-clippy",
+      "status": "PASS",
+      "command": [
+        "cargo",
+        "clippy",
+        "--locked",
+        "--workspace",
+        "--all-targets",
+        "--all-features",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "seconds": 44.981,
+      "log_sha256": "6a7730f10870e4da25fa5ff26167b3fdd423ec43a465b8683060b8c8900768d2"
+    },
+    {
+      "name": "snarkVM-aerie-fmt",
+      "status": "PASS",
+      "command": [
+        "cargo",
+        "+nightly-2026-04-02",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "seconds": 2.598,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "snarkVM-aerie-clippy",
+      "status": "PASS",
+      "command": [
+        "cargo",
+        "clippy",
+        "--locked",
+        "--workspace",
+        "--all-targets",
+        "--all-features",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "seconds": 46.468,
+      "log_sha256": "03bc6028cd71b96fb84c4a41130dcce381296d28e3887e8000ca588000f92322"
+    },
+    {
+      "name": "recovery-tests",
+      "status": "PASS",
+      "command": [
+        "cargo",
+        "test",
+        "--locked",
+        "-p",
+        "snarkvm-recovery",
+        "-p",
+        "snarkvm-recovery-signatures",
+        "-p",
+        "snarkvm-recovery-records"
+      ],
+      "seconds": 35.016,
+      "log_sha256": "50163a5f5293896abd31d7522f28929a1f53a16a0f584959bfa7b19fdd94f84a"
+    },
+    {
+      "name": "recovery-cost",
+      "status": "PASS",
+      "command": [
+        "cargo",
+        "test",
+        "--locked",
+        "-p",
+        "snarkvm-synthesizer-process",
+        "--test",
+        "recovery_cost"
+      ],
+      "seconds": 170.463,
+      "log_sha256": "0c55dcc563f2c388c9a4dd2b48c9f73541131447b2633b9623b05b68f9a1cd54"
+    },
+    {
+      "name": "independent-model",
+      "status": "PASS",
+      "command": [
+        "python3",
+        "/workspace/snarkVM/recovery/model/disclosed.py",
+        "--output",
+        "/workspace/security-evaluation/upstream-rebase-20261106/model"
+      ],
+      "seconds": 0.224,
+      "log_sha256": "f695aa996ad3de93db72bdbbfa190ce95156ea31051770b8503ba81e0e2caaa3"
+    },
+    {
+      "name": "harness-tests",
+      "status": "PASS",
+      "command": [
+        "python3",
+        "scripts/test_recovery_harness.py"
+      ],
+      "seconds": 0.132,
+      "log_sha256": "8c4b1532288f3c2237a75b4778a19116380135ed2658033225c3d1a1a8446867"
+    },
+    {
+      "name": "bft-units",
+      "status": "PASS",
+      "command": [
+        "cargo",
+        "test",
+        "--locked",
+        "-p",
+        "snarkos-node-bft",
+        "--lib"
+      ],
+      "seconds": 1134.893,
+      "log_sha256": "bb1d9b300f979205e1b76f00234ffb9dc5417c0e92cc7e31999c2bd74071669a"
+    },
+    {
+      "name": "build-before",
+      "status": "PASS",
+      "command": [
+        "python3",
+        "/workspace/.setup/recovery-build-inputs.py",
+        "--baseline",
+        "/workspace/security-evaluation/upstream-rebase-20261106/rebased-candidate-sources",
+        "--output",
+        "/workspace/security-evaluation/upstream-rebase-20261106/build-before.json"
+      ],
+      "seconds": 0.156,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "node-build",
+      "status": "PASS",
+      "command": [
+        "cargo",
+        "build",
+        "--locked",
+        "--release",
+        "--features",
+        "test_network"
+      ],
+      "seconds": 586.111,
+      "log_sha256": "05681c85edb1070645399bdf757d99defe1d87336d28544daae80901a9ea852f"
+    },
+    {
+      "name": "build-after",
+      "status": "PASS",
+      "command": [
+        "python3",
+        "/workspace/.setup/recovery-build-inputs.py",
+        "--baseline",
+        "/workspace/security-evaluation/upstream-rebase-20261106/rebased-candidate-sources",
+        "--output",
+        "/workspace/security-evaluation/upstream-rebase-20261106/build-after.json",
+        "--compare",
+        "/workspace/security-evaluation/upstream-rebase-20261106/build-before.json",
+        "--binary",
+        "/workspace/snarkOS/target/release/snarkos"
+      ],
+      "seconds": 0.289,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "ordinary-ci",
+      "status": "PASS",
+      "command": [
+        "python3",
+        "/workspace/security-evaluation/upstream-rebase-20261106/ci/run.py",
+        "--build-manifest",
+        "/workspace/security-evaluation/upstream-rebase-20261106/build-after.json"
+      ],
+      "seconds": 169.656,
+      "log_sha256": "850cf021a6f1425f3598ef838c6a2b43172ffa79ed9b411d0dc1ba70fc4b1c30"
+    },
+    {
+      "name": "native-devnet",
+      "status": "PASS",
+      "command": [
+        "python3",
+        "/workspace/snarkOS/scripts/test_disclosed_recovery.py",
+        "--binary",
+        "/workspace/snarkOS/target/release/snarkos",
+        "--build-manifest",
+        "/workspace/security-evaluation/upstream-rebase-20261106/build-after.json",
+        "--output",
+        "/workspace/security-evaluation/upstream-rebase-20261106/native-devnet-paced",
+        "--network",
+        "1",
+        "--h1",
+        "60",
+        "--h2",
+        "120",
+        "--genesis-file",
+        "/workspace/snarkVM/recovery/history-tools/fixtures/v0-testnet-dev-genesis/genesis.bin",
+        "--genesis-hash",
+        "ab1njne0yg0ygw9kwyldxw942syzvhvx7gjdp87nadermkt45w4x5ps88sgkx",
+        "--legacy-cache",
+        "/workspace/security-evaluation/disclosed-recovery-20261022/devnet-native-20261029-test-targets",
+        "--client-relay"
+      ],
+      "seconds": 440.897,
+      "log_sha256": "5cadf9f73c254b7f4bb5d0ab1c7d14fcd0f1478b9ce21a9df2cde5a8ef8b7c2d"
+    },
+    {
+      "name": "paced-harness-tests",
+      "status": "PASS",
+      "command": [
+        "python3",
+        "scripts/test_recovery_harness.py"
+      ],
+      "seconds": 0.103,
+      "log_sha256": "7c4ce78e536c0c2cdb85730c9c8381839f365b3a2b9d77c5cc9eaede9427b0df"
+    },
+    {
+      "name": "snarkOS-pacing-fmt",
+      "status": "PASS",
+      "command": [
+        "cargo",
+        "+nightly-2026-04-02",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "seconds": 3.468,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "snarkOS-pacing-clippy",
+      "status": "PASS",
+      "command": [
+        "cargo",
+        "clippy",
+        "--locked",
+        "--workspace",
+        "--all-targets",
+        "--all-features",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "seconds": 24.538,
+      "log_sha256": "0d3bedd842b61f05e754a98672c523a40ac85228761cdf98daa9b9dddda37356"
+    },
+    {
+      "name": "snarkOS-aerie-pacing-fmt",
+      "status": "PASS",
+      "command": [
+        "cargo",
+        "+nightly-2026-04-02",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "seconds": 3.665,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "snarkOS-aerie-pacing-clippy",
+      "status": "PASS",
+      "command": [
+        "cargo",
+        "clippy",
+        "--locked",
+        "--workspace",
+        "--all-targets",
+        "--all-features",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "seconds": 23.91,
+      "log_sha256": "e240bcfe532f4fd75a3652b340fe638baf9f8d1200765d12fe16798481dca053"
+    }
+  ],
+  "native_devnet": {
+    "status": "passed",
+    "validators": 4,
+    "relay_clients": 2,
+    "accepted_native_transactions": 12,
+    "negative_cases": 21,
+    "invalid_broadcasts_rejected_with_422": 84,
+    "passed_phases": [
+      "cache-restored",
+      "proof-legacy-competing-upgrade",
+      "proof-legacy-dormant-upgrade",
+      "proof-legacy-v0-to-v1",
+      "legacy-proving-quorum-pause",
+      "legacy-upgrades-valid-before-h1",
+      "legacy-upgrade-pool",
+      "competing-preparation",
+      "stage1",
+      "stage2",
+      "activations",
+      "persisted-restart",
+      "interrupted-finalization",
+      "crash-recovered",
+      "partition",
+      "reconnected-transactions",
+      "rollback-replayed",
+      "accepted-effects-conservation",
+      "six-node-client-relay",
+      "client-p2p-relay"
+    ],
+    "http_pacing": {
+      "minimum_interval_seconds": 0.2,
+      "scope": "per scheme and endpoint; shared by reads and broadcasts",
+      "post_retries": false
+    },
+    "limits": [
+      "Local development validator keys and disclosed records only",
+      "Classical BFT consensus and historical state remain trusted",
+      "Topology partition uses persisted process restarts and explicit trusted peers",
+      "Historical replay uses known canonical classical devnet history; it does not demonstrate quantum-safe bootstrap",
+      "After legacy compromise, bootstrapping needs an authentic checkpoint including pre-compromise V2 enrollment plus continuing authenticated state",
+      "No finalized BFT reorganization or live network deployment"
+    ]
+  },
+  "ordinary_ci": {
+    "status": "PASS",
+    "validators": 4,
+    "clients": 4,
+    "elapsed_seconds": 169.15494515001774,
+    "scripts": {
+      ".ci/test_devnet.sh": {
+        "sha256": "3cfdf0ac1eadc26b9b26340c73c2418c85f406793ec79af1f226299afa668c74",
+        "bytes": 19997
+      },
+      ".ci/utils.sh": {
+        "sha256": "eddbfa37aea02016f3b48fd3b81150b38a826641a9091711fc49f9326045f5c3",
+        "bytes": 30363
+      }
+    },
+    "all_evidence_identities_unchanged": true
+  },
+  "earlier_attempts": {
+    "retained": true,
+    "invocation_environment_errors": 2,
+    "native_rate_limit_failure": "First recovery run stopped on HTTP429 during a negative test; per-endpoint pacing fixed the test without changing server limits or retrying POSTs."
+  },
+  "not_rerun": [
+    "Aerie aggregate proof execution",
+    "coverage-guided fuzzing",
+    "larger storage and VM suites"
+  ],
+  "evidence_root": "/workspace/security-evaluation/upstream-rebase-20261106"
+}

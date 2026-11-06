@@ -142,6 +142,31 @@ workspace = true
 workspace = true
 features = [ "parameters", "circuit", "package", "rocks" ]
 
+[dependencies.snarkvm-recovery]
+workspace = true
+
+[dependencies.snarkvm-recovery-records]
+workspace = true
+
+[dependencies.snarkvm-recovery-signatures]
+workspace = true
+
+[dependencies.hex]
+version = "=0.4.3"
+
+[dependencies.ml-dsa]
+version = "=0.1.1"
+default-features = false
+features = [ "alloc", "zeroize" ]
+
+[dependencies.fn-dsa]
+version = "=0.3.0"
+
+[dependencies.rand_core06]
+package = "rand_core"
+version = "=0.6.4"
+features = [ "getrandom" ]
+
 [dependencies.sys-info]
 version = "0.9"
 

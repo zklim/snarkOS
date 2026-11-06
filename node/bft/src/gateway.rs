@@ -1238,6 +1238,9 @@ impl<N: Network> Gateway<N> {
     /// if the number of connected validators is less than the minimum.
     /// It also attempts to connect to known unconnected validators.
     async fn handle_min_connected_validators(&self) {
+        if self.trusted_peers_only {
+            return;
+        }
         // Attempt to connect to untrusted validators we're not connected to yet.
         // The trusted ones are already handled by `handle_trusted_validators`.
         let trusted_validators = self.trusted_peers();
@@ -1552,6 +1555,9 @@ impl<N: Network> Disconnect for Gateway<N> {
 #[async_trait]
 impl<N: Network> OnConnect for Gateway<N> {
     async fn on_connect(&self, peer_addr: SocketAddr) {
+        if self.trusted_peers_only {
+            return;
+        }
         if let Some(listener_addr) = self.resolve_to_listener(&peer_addr)
             && let Some(peer) = self.get_connected_peer(listener_addr)
             && peer.node_type == NodeType::BootstrapClient
@@ -2058,7 +2064,7 @@ mod prop_tests {
     use snarkos_account::Account;
     use snarkos_node_bft_ledger_service::MockLedgerService;
     use snarkos_node_bft_storage_service::BFTMemoryService;
-    use snarkos_node_network::PeerPoolHandling;
+    use snarkos_node_network::{ConnectionMode, NodeType, Peer, PeerPoolHandling};
     use snarkos_node_tcp::P2P;
     use snarkos_utilities::NodeDataDir;
 
@@ -2085,6 +2091,51 @@ mod prop_tests {
     use test_strategy::proptest;
 
     type CurrentNetwork = MainnetV0;
+
+    #[tokio::test]
+    async fn trusted_only_suppresses_discovery_tasks() {
+        use proptest::{strategy::ValueTree, test_runner::TestRunner};
+        let input = any_valid_dev_gateway().new_tree(&mut TestRunner::deterministic()).unwrap().current();
+        let (storage, _, private_key, dev) = input;
+        let account = Account::try_from(private_key).unwrap();
+        let peer_addr = SocketAddr::from(([127, 0, 0, 1], 65001));
+        let rng = &mut TestRng::fixed(0x2926_1022);
+        let peer_account = Account::try_from(PrivateKey::<CurrentNetwork>::new(rng).unwrap()).unwrap();
+        for trusted_only in [false, true] {
+            let gateway = Gateway::new(
+                account.clone(),
+                storage.clone(),
+                storage.ledger().clone(),
+                dev.ip(),
+                &[peer_addr],
+                trusted_only,
+                NodeDataDir::new_test(None),
+                dev.port(),
+            )
+            .unwrap();
+            let mut peer = Peer::new_connecting(peer_addr, true);
+            peer.upgrade_to_connected(
+                peer_addr,
+                peer_addr.port(),
+                peer_account.address(),
+                NodeType::Validator,
+                1,
+                None,
+                ConnectionMode::Gateway,
+            );
+            gateway.peer_pool().write().insert(peer_addr, peer);
+            let tasks_before = gateway.handles.lock().len();
+            gateway.handle_min_connected_validators().await;
+            assert_eq!(gateway.handles.lock().len(), tasks_before + usize::from(!trusted_only));
+            if trusted_only {
+                assert!(!gateway.cache.contains_outbound_validators_request(peer_addr));
+                assert!(gateway.is_connected(peer_addr));
+            }
+            for handle in gateway.handles.lock().drain(..) {
+                handle.abort();
+            }
+        }
+    }
 
     /// The per-connection queues are sized from the fetch-timeout window, not the GC window.
     ///

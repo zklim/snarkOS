@@ -50,7 +50,7 @@ impl<N: Network> TransactionsQueue<N> {
         transaction: Transaction<N>,
         priority_fee: U64<N>,
     ) -> Result<()> {
-        let result = if transaction.is_execute() {
+        let result = if transaction.is_execute() || transaction.is_recovery() {
             self.executions.insert(transaction_id, transaction, priority_fee)
         } else {
             self.deployments.insert(transaction_id, transaction, priority_fee)

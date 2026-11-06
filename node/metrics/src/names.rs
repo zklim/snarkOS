@@ -20,7 +20,7 @@ pub(super) const COUNTER_NAMES: [&str; 4] = [
     consensus::DROPPED_TRANSACTIONS,
 ];
 
-pub(super) const GAUGE_NAMES: [&str; 33] = [
+pub(super) const GAUGE_NAMES: [&str; 34] = [
     bft::CONNECTED,
     bft::CONNECTED_STAKE,
     bft::CONNECTED_STAKE_WITH_MATCHING_SHA,
@@ -35,6 +35,7 @@ pub(super) const GAUGE_NAMES: [&str; 33] = [
     blocks::TRANSACTIONS,
     blocks::ACCEPTED_DEPLOY,
     blocks::ACCEPTED_EXECUTE,
+    blocks::ACCEPTED_RECOVERY,
     blocks::REJECTED_DEPLOY,
     blocks::REJECTED_EXECUTE,
     blocks::ABORTED_TRANSACTIONS,
@@ -103,6 +104,7 @@ pub mod blocks {
     pub const SOLUTIONS: &str = "snarkos_blocks_solutions_total";
     pub const ACCEPTED_DEPLOY: &str = "snarkos_blocks_accepted_deploy";
     pub const ACCEPTED_EXECUTE: &str = "snarkos_blocks_accepted_execute";
+    pub const ACCEPTED_RECOVERY: &str = "snarkos_blocks_accepted_recovery";
     pub const REJECTED_DEPLOY: &str = "snarkos_blocks_rejected_deploy";
     pub const REJECTED_EXECUTE: &str = "snarkos_blocks_rejected_execute";
     pub const ABORTED_TRANSACTIONS: &str = "snarkos_blocks_aborted_transactions";

@@ -346,7 +346,7 @@ impl<N: Network, C: ConsensusStorage<N>> Inbound<N> for Client<N, C> {
                     deploy_queue.put(transaction.id(), (peer_ip, serialized, transaction));
                 }
             }
-            Transaction::<N>::Execute(..) => {
+            Transaction::<N>::Execute(..) | Transaction::<N>::Recovery(..) => {
                 let mut execute_queue = self.execute_queue.lock();
                 if !execute_queue.contains(&transaction.id()) {
                     execute_queue.put(transaction.id(), (peer_ip, serialized, transaction));

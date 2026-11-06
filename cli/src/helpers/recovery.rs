@@ -13,21 +13,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use anyhow::{Result, ensure};
-use snarkvm::console::network::{ConsensusVersion, Network};
+use anyhow::{Context, Result};
+use snarkvm::console::network::Network;
 
-/// The experimental recovery ledger has no production Aleo ownership-proof or
-/// atomic storage adapter. A scheduled activation cannot safely start this node.
+/// Checks every signature and aggregation capability required by consensus policy.
 pub(crate) fn check_network<N: Network>() -> Result<()> {
-    check_heights(N::CONSENSUS_HEIGHT(ConsensusVersion::V23)?, N::CONSENSUS_HEIGHT(ConsensusVersion::V24)?)
-}
-
-fn check_heights(preparation: u32, recovery: u32) -> Result<()> {
-    ensure!(
-        preparation == u32::MAX && recovery == u32::MAX,
-        "Missing consensus-integrated recovery backend: V23/V24 must remain unscheduled; the experimental recovery ledger does not verify private Aleo record ownership or commit atomic Aleo migrations"
-    );
-    Ok(())
+    snarkvm::synthesizer::check_recovery_capabilities::<N>()
+        .context("Missing or incompatible consensus-required recovery capability")
 }
 
 #[cfg(test)]
@@ -35,15 +27,17 @@ mod tests {
     use super::*;
 
     #[test]
-    fn recovery_requires_complete_consensus_backend() {
-        assert!(check_heights(u32::MAX, u32::MAX).is_ok());
-        for (first, second) in [(30, u32::MAX), (u32::MAX, 40), (30, 40), (0, 0)] {
-            assert!(
-                check_heights(first, second)
-                    .expect_err("incomplete integrations must fail")
-                    .to_string()
-                    .contains("Missing consensus-integrated recovery backend")
-            );
-        }
+    fn native_registry_satisfies_consensus_policy() {
+        check_network::<snarkvm::console::network::MainnetV0>().unwrap();
+    }
+
+    #[test]
+    fn missing_signature_registry_fails_clearly() {
+        let policy = snarkvm_recovery::Policy::default();
+        let backends = snarkvm_recovery::Backends::default();
+        assert_eq!(
+            backends.require(&policy.profiles, &policy.aggregates),
+            Err(snarkvm_recovery::Error::MissingBackend)
+        );
     }
 }

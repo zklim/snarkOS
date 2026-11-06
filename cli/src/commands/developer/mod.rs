@@ -25,6 +25,9 @@ pub use execute::*;
 mod scan;
 pub use scan::*;
 
+mod recovery;
+pub use recovery::*;
+
 mod transfer_private;
 pub use transfer_private::*;
 
@@ -84,6 +87,8 @@ pub enum DeveloperCommand {
     Execute(Execute),
     /// Scan the node for records.
     Scan(Scan),
+    /// Prepare disclosed credits records and authorize post-quantum recovery transactions.
+    Recovery(RecoveryCommand),
     /// Execute the `credits.aleo/transfer_private` function.
     TransferPrivate(TransferPrivate),
 }
@@ -160,6 +165,7 @@ impl Developer {
             Deploy(deploy) => deploy.parse::<N>(),
             Execute(execute) => execute.parse::<N>(),
             Scan(scan) => scan.parse::<N>(),
+            Recovery(recovery) => recovery.parse::<N>(),
             TransferPrivate(transfer_private) => transfer_private.parse::<N>(),
         }
     }
@@ -504,6 +510,13 @@ impl Developer {
                                 broadcast_endpoint
                             )
                         }
+                        Transaction::Recovery(..) => {
+                            println!(
+                                "⌛ Recovery {transaction_id} ('{}') has been broadcast to {}.",
+                                operation.bold(),
+                                broadcast_endpoint
+                            )
+                        }
                         _ => unreachable!(),
                     }
 
@@ -521,6 +534,9 @@ impl Developer {
                             Transaction::Execute(..) => {
                                 println!("✅ Execution {transaction_id} ('{}') confirmed!", operation.bold())
                             }
+                            Transaction::Recovery(..) => {
+                                println!("✅ Recovery {transaction_id} ('{}') confirmed!", operation.bold())
+                            }
                             Transaction::Fee(..) => unreachable!(),
                         }
                     }
@@ -535,6 +551,12 @@ impl Developer {
                     Transaction::Execute(..) => {
                         return Err(error.context(anyhow!(
                             "Failed to broadcast execution '{op}' to {broadcast_endpoint}",
+                            op = operation.bold()
+                        )));
+                    }
+                    Transaction::Recovery(..) => {
+                        return Err(error.context(anyhow!(
+                            "Failed to broadcast recovery '{op}' to {broadcast_endpoint}",
                             op = operation.bold()
                         )));
                     }

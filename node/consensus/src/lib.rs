@@ -491,6 +491,7 @@ impl<N: Network> Consensus<N> {
             let tx_type_str = match transaction {
                 Transaction::Deploy(..) => "deployment",
                 Transaction::Execute(..) => "execution",
+                Transaction::Recovery(..) => "recovery",
                 Transaction::Fee(..) => "fee",
             };
             trace!("Adding unconfirmed {tx_type_str} transaction '{}' to the memory pool...", fmt_id(transaction_id));

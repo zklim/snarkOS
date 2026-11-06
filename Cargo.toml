@@ -49,6 +49,18 @@ default-features = false
 path = "../snarkVM"
 default-features = false
 
+[workspace.dependencies.snarkvm-recovery]
+path = "../snarkVM/recovery/core"
+version = "=0.1.0"
+
+[workspace.dependencies.snarkvm-recovery-records]
+path = "../snarkVM/recovery/records"
+version = "=0.1.0"
+
+[workspace.dependencies.snarkvm-recovery-signatures]
+path = "../snarkVM/recovery/signatures"
+version = "=0.1.0"
+
 [workspace.dependencies.anyhow]
 version = "1.0"
 

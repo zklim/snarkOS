@@ -364,6 +364,16 @@ pub struct Start {
     #[clap(long, group = "dev_flags", default_value_t=DEVELOPMENT_MODE_NUM_GENESIS_COMMITTEE_MEMBERS)]
     pub dev_num_validators: u16,
 
+    /// Explicit historical genesis bytes for a local development network.
+    #[cfg(feature = "test_network")]
+    #[clap(long, group = "dev_flags", requires = "dev_genesis_hash", conflicts_with = "dev_on_prod")]
+    pub dev_genesis_file: Option<PathBuf>,
+
+    /// Expected block hash of --dev-genesis-file.
+    #[cfg(feature = "test_network")]
+    #[clap(long, group = "dev_flags", requires = "dev_genesis_file")]
+    pub dev_genesis_hash: Option<String>,
+
     /// If development mode is enabled, specify the number of clients.
     /// This is only used by validators to automatically populate their set of trusted peers.
     ///
@@ -672,6 +682,37 @@ impl Start {
                 (0..num_committee_members).map(|_| PrivateKey::<N>::new(&mut rng)).collect::<Result<Vec<_>>>()?;
             // Initialize the development addresses.
             let development_addresses = dev_keys.iter().map(Address::<N>::try_from).collect::<Result<Vec<_>>>()?;
+
+            #[cfg(feature = "test_network")]
+            if let Some(path) = &self.dev_genesis_file {
+                ensure!(fs::metadata(path)?.len() <= 64 * 1024 * 1024, "Development genesis exceeds byte limit");
+                let bytes = fs::read(path)?;
+                let genesis = Block::<N>::from_bytes_le(&bytes)?;
+                ensure!(genesis.to_bytes_le()? == bytes, "Development genesis is not canonically encoded");
+                ensure!(genesis.is_genesis()?, "Development genesis does not satisfy genesis rules");
+                ensure!(
+                    Some(genesis.hash().to_string()).as_ref() == self.dev_genesis_hash.as_ref(),
+                    "Development genesis hash mismatch"
+                );
+                ensure!(
+                    genesis.authority().to_address() == development_addresses[0],
+                    "Development genesis signer is not developer account zero"
+                );
+                let committee = genesis
+                    .ratifications()
+                    .iter()
+                    .find_map(|ratification| match ratification {
+                        snarkvm::ledger::block::Ratify::Genesis(committee, ..) => Some(committee),
+                        _ => None,
+                    })
+                    .ok_or_else(|| anyhow!("Development genesis has no committee"))?;
+                ensure!(
+                    committee.members().len() == development_addresses.len()
+                        && development_addresses.iter().all(|address| committee.members().contains_key(address)),
+                    "Development genesis committee does not match configured developer accounts"
+                );
+                return Ok(genesis);
+            }
 
             // Construct the committee based on the state of the bonded balances.
             let (committee, bonded_balances) = match &self.dev_bonded_balances {

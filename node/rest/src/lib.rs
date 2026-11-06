@@ -318,6 +318,7 @@ impl<N: Network, C: ConsensusStorage<N>, R: Routing<N>> Rest<N, C, R> {
 
              // Get ../consensus_version
             .route("/consensus_version", get(Self::get_consensus_version))
+            .route("/recovery/state", get(Self::get_recovery_state))
 
             // GET ../block/..
             .route("/block/height/latest", get(Self::get_block_height_latest))

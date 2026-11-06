@@ -314,6 +314,28 @@ impl<N: Network, C: ConsensusStorage<N>, R: Routing<N>> Rest<N, C, R> {
         Ok(ErasedJson::pretty(N::CONSENSUS_VERSION(rest.ledger.latest_height())? as u16))
     }
 
+    /// GET /<network>/recovery/state
+    pub(crate) async fn get_recovery_state(State(rest): State<Self>) -> Result<ErasedJson, RestError> {
+        let (network, policy, checkpoint, root, height) = rest.ledger.vm().recovery_snapshot()?;
+        if checkpoint.len() > 64 * 1024 * 1024 {
+            return Err(RestError::from(anyhow!("Recovery checkpoint exceeds response limit")));
+        }
+        let profiles =
+            policy.profiles.iter().map(|profile| [profile.algorithm, profile.parameters]).collect::<Vec<_>>();
+        Ok(ErasedJson::pretty(json!({
+            "height": height,
+            "network": hex::encode(network),
+            "root": hex::encode(root),
+            "checkpoint": hex::encode(checkpoint),
+            "policy": {
+                "preparation": policy.preparation,
+                "recovery": policy.recovery,
+                "profiles": profiles,
+                "aggregates": policy.aggregates,
+            }
+        })))
+    }
+
     /// GET /<network>/block/height/latest
     pub(crate) async fn get_block_height_latest(State(rest): State<Self>) -> ErasedJson {
         ErasedJson::pretty(rest.ledger.latest_height())
@@ -1280,7 +1302,7 @@ impl<N: Network, C: ConsensusStorage<N>, R: Routing<N>> Rest<N, C, R> {
         let check_transaction = check_transaction.check_transaction.unwrap_or(false);
 
         let tx = if check_transaction {
-            let verification_slot = if tx.is_execute() {
+            let verification_slot = if tx.is_execute() || tx.is_recovery() {
                 rest.verification_slots.executions.acquire().await?
             } else {
                 rest.verification_slots.deploys.acquire().await?
