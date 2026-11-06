@@ -7,8 +7,8 @@ or unlinkability guarantee is claimed. Public activations remain unscheduled;
 no live network deployment is performed.
 
 The complete construction, canonical statement and trust boundaries are in the
-matching [snarkVM architecture](../snarkVM/RECOVERY_ARCHITECTURE.md) and
-[ownership relation](../snarkVM/recovery/OWNERSHIP_PROOF.md). Preparation verifies
+matching [snarkVM architecture](../snarkVM-aerie/RECOVERY_ARCHITECTURE.md) and
+[ownership relation](../snarkVM-aerie/recovery/OWNERSHIP_PROOF.md). Preparation verifies
 exact historical credits openings and source provenance, an owner signature and
 a classical certificate binding the original serial. It enrolls an exact PQ
 algorithm/profile/key before legacy compromise. After H2, only that enrolled
@@ -47,7 +47,7 @@ adapters outside ownership/state logic. Genuine ML-DSA and Falcon authorization
 share the transition logic. Optional Aerie aggregation is not enabled by native
 production policy; its classical-ROM argument is not relabeled quantum soundness.
 Exact starting commits, dependencies and source snapshots are recorded in the
-[VM integration status](../snarkVM/recovery/INTEGRATION_STATUS.md).
+[VM integration status](../snarkVM-aerie/recovery/INTEGRATION_STATUS.md).
 
 snarkOS currently uses the matching local VM tree for development. Reproduction
 must include that exact tree/snapshot and both lockfiles. A starting commit alone

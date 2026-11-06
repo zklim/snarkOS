@@ -46,19 +46,19 @@ version = "1.0.4"
 default-features = false
 
 [workspace.dependencies.snarkvm]
-path = "../snarkVM"
+path = "../snarkVM-aerie"
 default-features = false
 
 [workspace.dependencies.snarkvm-recovery]
-path = "../snarkVM/recovery/core"
+path = "../snarkVM-aerie/recovery/core"
 version = "=0.1.0"
 
 [workspace.dependencies.snarkvm-recovery-records]
-path = "../snarkVM/recovery/records"
+path = "../snarkVM-aerie/recovery/records"
 version = "=0.1.0"
 
 [workspace.dependencies.snarkvm-recovery-signatures]
-path = "../snarkVM/recovery/signatures"
+path = "../snarkVM-aerie/recovery/signatures"
 version = "=0.1.0"
 
 [workspace.dependencies.anyhow]

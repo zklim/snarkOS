@@ -61,6 +61,17 @@
   "publication": {
     "snapshot_fields": "The fields above identify the validated pre-publication capture; use the Git commit containing this manifest for the published checkout.",
     "notes": "RECOVERY_PUBLICATION.md",
-    "validation_summary": "RECOVERY_VALIDATION.json"
+    "validation_summary": "RECOVERY_VALIDATION.json",
+    "core_ancestor": {
+      "repository": "snarkOS",
+      "commit": "888e6aa438e11ebd8047cc9f2f53735f7b16107f"
+    },
+    "vm_dependency": {
+      "repository": "zklim/snarkVM",
+      "commit": "da4e1bb28104e11e24434fa2ffbce4e824f516d1",
+      "branch": "quantum-recoverability-aerie",
+      "path": "../snarkVM-aerie",
+      "source": "https://github.com/zklim/snarkVM.git"
+    }
   }
 }

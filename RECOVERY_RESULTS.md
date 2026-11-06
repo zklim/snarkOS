@@ -12,7 +12,7 @@ Twelve accepted native transactions conserve 3,000,000,000 microcredits as 2,998
 unspent plus 1,200,000 fees. Unchanged ordinary devnet CI passes in 208.19 seconds,
 including all eight nodes and original log caps. Strict checks and pinned formatting pass.
 
-[Complete construction, claim-to-evidence matrix, transactions, costs and commands](../snarkVM/RECOVERY_RESULTS.md).
+[Complete construction, claim-to-evidence matrix, transactions, costs and commands](../snarkVM-aerie/RECOVERY_RESULTS.md).
 [Source identities](RECOVERY_SOURCE_MANIFEST.json).
 
 Public activation heights remain unscheduled. No live network was deployed. This is the

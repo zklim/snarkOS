@@ -17,6 +17,6 @@ are unsupported/frozen as specified. Authentic pre-compromise enrollment and con
 state are assumptions; classical consensus and checkpoint transport are not upgraded by PQ keys.
 The optional pinned Aerie adapter remains separate. Public heights are unscheduled; no live deployment.
 
-[Complete ownership statement](../snarkVM/recovery/OWNERSHIP_PROOF.md).
-[Backend assumptions](../snarkVM/recovery/PROOF_BACKENDS.md).
-[Source identities and reproduction](../snarkVM/recovery/INTEGRATION_STATUS.md).
+[Complete ownership statement](../snarkVM-aerie/recovery/OWNERSHIP_PROOF.md).
+[Backend assumptions](../snarkVM-aerie/recovery/PROOF_BACKENDS.md).
+[Source identities and reproduction](../snarkVM-aerie/recovery/INTEGRATION_STATUS.md).
